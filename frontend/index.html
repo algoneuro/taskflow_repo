@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Управляй задачами эффективно</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">📋</span>
+                <span class="logo-text">TaskFlow</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Главная</a>
+                <a href="#features">Возможности</a>
+                <a href="#about">О проекте</a>
+                <!-- Блок для неавторизованных -->
+                <div id="unauth-buttons" class="auth-buttons">
+                    <a href="login.html" class="btn-outline">Войти</a>
+                    <a href="register.html" class="btn-primary">Регистрация</a>
+                </div>
+                <!-- Блок для авторизованных -->
+                <div id="auth-user-info" class="auth-user-info" style="display: none;">
+                    <span class="user-greeting" id="greeting-username"></span>
+                    <a href="dashboard.html" class="btn-primary">Мои задачи</a>
+                    <button class="btn-outline" onclick="logoutFromIndex()">Выйти</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Управляйте задачами <span class="gradient">проще</span></h1>
+                <p>TaskFlow — это современный инструмент для организации работы и личных задач. Создавайте, отслеживайте и завершайте дела быстрее.</p>
+                <div class="hero-buttons" id="hero-buttons">
+                    <a href="register.html" class="btn-primary btn-large">Начать бесплатно</a>
+                    <a href="login.html" class="btn-outline btn-large">Войти</a>
+                </div>
+                <div class="hero-buttons" id="hero-authed-buttons" style="display: none;">
+                    <a href="dashboard.html" class="btn-primary btn-large">Перейти к задачам</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="preview-card">
+                    <div class="preview-task">✅ Завершить отчет</div>
+                    <div class="preview-task">🔄 Созвон с командой</div>
+                    <div class="preview-task">📝 Написать документацию</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <h2>Почему TaskFlow?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Приоритеты задач</h3>
+                    <p>Высокий, средний, низкий приоритет — всегда знайте, что важно прямо сейчас.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Статистика</h3>
+                    <p>Отслеживайте прогресс: процент выполнения, средний приоритет, нагрузка.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Безопасность</h3>
+                    <p>Ваши задачи видны только вам. Надежная аутентификация JWT.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Быстро и удобно</h3>
+                    <p>Интуитивный интерфейс, пагинация, фильтрация по статусу.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2>О проекте</h2>
+            <p>TaskFlow разработан в рамках дипломного проекта. Это полноценное веб-приложение с REST API, аутентификацией и современным UI.</p>
+            <div class="tech-stack">
+                <span class="tech-badge">FastAPI</span>
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">SQLite</span>
+                <span class="tech-badge">JWT</span>
+                <span class="tech-badge">HTML5/CSS3</span>
+                <span class="tech-badge">JavaScript</span>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>📋 TaskFlow</h4>
+                <p>Современный инструмент для организации работы и личных задач.</p>
+            </div>
+            <div class="footer-section">
+                <h4>📞 Контакты</h4>
+                <p>📧 support@taskflow.com</p>
+                <p>📱 +7 (999) 123-45-67</p>
+            </div>
+            <div class="footer-section">
+                <h4>⚡ Технологии</h4>
+                <p>FastAPI • Python • SQLite • JWT</p>
+                <p>HTML5 • CSS3 • JavaScript</p>
+            </div>
+            <div class="footer-section">
+                <h4>📄 О проекте</h4>
+                <p>Дипломный проект 2024</p>
+                <p>Комплексное тестирование</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 TaskFlow. Все права защищены. Дипломный проект.</p>
+        </div>
+    </footer>
+
+    <script src="common.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', updateIndexNavbar);
+        function logoutFromIndex() {
+            logout();
+        }
+    </script>
+</body>
+</html>

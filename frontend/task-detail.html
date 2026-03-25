@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Детали задачи</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body">
+    <nav class="navbar dashboard-nav">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">📋</span>
+                <a href="dashboard.html" class="logo-text">TaskFlow</a>
+            </div>
+            <div class="nav-links">
+                <a href="dashboard.html">Мои задачи</a>
+                <a href="#" onclick="showStatistics()">Статистика</a>
+                <div class="user-menu">
+                    <span id="username-display"></span>
+                    <button class="btn-outline" onclick="logout()">Выйти</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <div class="task-detail-card">
+            <div class="task-detail-header">
+                <button class="back-btn" onclick="window.location.href='dashboard.html'">← Назад к задачам</button>
+                <div class="task-status-badge" id="task-status-badge"></div>
+            </div>
+            
+            <div class="task-detail-content">
+                <div class="task-detail-title">
+                    <input type="text" id="task-title-detail" class="detail-input title-input">
+                </div>
+                
+                <div class="task-detail-field">
+                    <label>📝 Описание</label>
+                    <textarea id="task-description-detail" class="detail-textarea" rows="4"></textarea>
+                </div>
+                
+                <div class="task-detail-row">
+                    <div class="task-detail-field">
+                        <label>🎯 Приоритет</label>
+                        <select id="task-priority-detail" class="detail-select">
+                            <option value="1">🟢 Низкий</option>
+                            <option value="2">🟡 Средний</option>
+                            <option value="3">🔴 Высокий</option>
+                        </select>
+                    </div>
+                    
+                    <div class="task-detail-field">
+                        <label>📅 Статус</label>
+                        <select id="task-status-detail" class="detail-select">
+                            <option value="pending">⏳ Ожидает</option>
+                            <option value="in_progress">🔄 В работе</option>
+                            <option value="completed">✅ Выполнена</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="task-detail-row">
+                    <div class="task-detail-field">
+                        <label>📆 Срок выполнения</label>
+                        <input type="datetime-local" id="task-duedate-detail" class="detail-input">
+                    </div>
+                    
+                    <div class="task-detail-field">
+                        <label>📅 Создана</label>
+                        <input type="text" id="task-created-detail" class="detail-input" readonly disabled>
+                    </div>
+                </div>
+                
+                <div class="task-detail-row">
+                    <div class="task-detail-field">
+                        <label>🕐 Обновлена</label>
+                        <input type="text" id="task-updated-detail" class="detail-input" readonly disabled>
+                    </div>
+                </div>
+                
+                <div id="task-detail-error" class="error-message" style="display: none;"></div>
+                <div id="task-detail-success" class="success-message" style="display: none;"></div>
+                
+                <div class="task-detail-actions">
+                    <button class="btn-primary" onclick="saveTaskChanges()">💾 Сохранить изменения</button>
+                    <button class="btn-danger" onclick="deleteCurrentTask()">🗑 Удалить задачу</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="common.js"></script>
+    <script src="task-detail.js"></script>
+        <!-- Футер -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>📋 TaskFlow</h4>
+                <p>Личный менеджер задач. Создавайте, отслеживайте и завершайте дела быстрее.</p>
+            </div>
+            <div class="footer-section">
+                <h4>📞 Контакты</h4>
+                <p>📧 support@taskflow.com</p>
+                <p>📱 +7 (999) 123-45-67</p>
+            </div>
+            <div class="footer-section">
+                <h4>⚡ Технологии</h4>
+                <p>FastAPI • Python • SQLite • JWT</p>
+                <p>HTML5 • CSS3 • JavaScript</p>
+            </div>
+            <div class="footer-section">
+                <h4>📄 О проекте</h4>
+                <p>Дипломный проект 2024</p>
+                <p>Комплексное тестирование</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 TaskFlow. Все права защищены.</p>
+        </div>
+    </footer>
+</body>
+</html>
